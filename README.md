@@ -14,36 +14,77 @@ private_key_hex,TRON_address
 
 ## 1. 快速开始（普通使用）
 
-如果你已经完成编译并整理了运行文件，默认运行目录为：
+下载已编译好的 Windows OpenCL 版本：
+
+[TRX-Tron-vanity-address-generator-windows-opencl.zip](https://github.com/dexter584/TronGen/releases/download/v1.0.0/TRX-Tron-vanity-address-generator-windows-opencl.zip)
+
+下载后解压，解压后的目录结构大致为：
 
 ```text
-dist\
+TRX-Tron-vanity-address-generator-windows-opencl\
+  profanity.exe
+  OpenCL.dll
+  libcrypto-3-x64.dll
+  matching\
+  scripts\
 ```
 
-可直接运行 `dist\scripts\` 里预置的批处理脚本（示例：生成后缀为数字/字母，位数 6~9）：
+### 1.1 启动脚本位置
+
+启动脚本在解压目录的 `scripts\` 目录里。双击运行对应脚本即可开始生成：
 
 ```text
-dist\scripts\suffix_digits_6.bat
-dist\scripts\suffix_digits_7.bat
-dist\scripts\suffix_digits_8.bat
-dist\scripts\suffix_digits_9.bat
-dist\scripts\suffix_letters_6.bat
-dist\scripts\suffix_letters_7.bat
-dist\scripts\suffix_letters_8.bat
-dist\scripts\suffix_letters_9.bat
+scripts\suffix_digits_6.bat
+scripts\suffix_digits_7.bat
+scripts\suffix_digits_8.bat
+scripts\suffix_digits_9.bat
+scripts\suffix_letters_6.bat
+scripts\suffix_letters_7.bat
+scripts\suffix_letters_8.bat
+scripts\suffix_letters_9.bat
 ```
 
-生成结果写入：
+脚本名称含义：
+
+- `suffix_digits_6.bat`：生成后缀匹配数字规则、后缀至少 6 位命中的地址。
+- `suffix_digits_7.bat` / `suffix_digits_8.bat` / `suffix_digits_9.bat`：数字后缀位数分别为 7、8、9。
+- `suffix_letters_6.bat` / `suffix_letters_7.bat` / `suffix_letters_8.bat` / `suffix_letters_9.bat`：字母后缀位数分别为 6、7、8、9。
+
+### 1.2 生成结果位置
+
+脚本运行后会在解压目录下自动创建 `result\` 目录，命中的结果写入：
 
 ```text
-dist\result\*.txt
+result\*.txt
 ```
 
-OpenCL kernel 编译缓存写入：
+例如运行：
 
 ```text
-dist\cache\
+scripts\suffix_digits_6.bat
 ```
+
+默认会生成：
+
+```text
+result\suffix_digits_6.txt
+```
+
+结果文件每行格式为：
+
+```text
+private_key_hex,TRON_address
+```
+
+### 1.3 运行缓存位置
+
+OpenCL kernel 编译缓存会自动写入解压目录下的：
+
+```text
+cache\
+```
+
+`cache\` 可以删除；下次运行时程序会自动重新生成。
 
 ---
 
