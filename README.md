@@ -1,6 +1,13 @@
 # TRX/波场地址靓号生成器
 
-基于 GPU/OpenCL 的 TRON 靓号地址生成工具（改自 ethereum profanity）。仓库包含源码、Visual Studio 工程，以及从源码编译所需的 OpenCL/OpenSSL 头文件与导入库。
+基于 OpenCL 的 TRON 靓号地址生成工具（改自 ethereum profanity）。仓库包含源码、Visual Studio 工程，以及从源码编译所需的 OpenCL/OpenSSL 头文件与导入库。
+
+亮点：
+
+- 支持 NVIDIA / AMD 等 OpenCL GPU 设备运行。
+- 使用 GPU 批量生成与筛选地址，适合长时间批量搜索靓号后缀。
+- 提供已编译的 Windows 版本，下载解压后可直接通过脚本启动。
+- CPU 运行需要 OpenCL CPU runtime 与对应设备枚举支持；当前 v1.0.0 发布包默认面向 OpenCL GPU。
 
 程序会批量生成 TRON 私钥与地址，并按“前缀/后缀匹配”规则筛选。命中后输出格式为：
 
@@ -16,7 +23,7 @@ private_key_hex,TRON_address
 
 下载已编译好的 Windows OpenCL 版本：
 
-[TRX-Tron-vanity-address-generator-windows-opencl.zip](https://github.com/dexter584/TronGen/releases/download/v1.0.0/TRX-Tron-vanity-address-generator-windows-opencl.zip)
+[Release v1.0.0 下载页面](https://github.com/dexter584/TronGen/releases/tag/v1.0.0)
 
 下载后解压，解压后的目录结构大致为：
 
