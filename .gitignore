@@ -1,0 +1,26 @@
+# Makefile artifacts
+*.o
+*.so
+cache-opencl.*
+bin
+README_dev.md
+.vs*
+
+# Build artifacts (MSVC)
+build/
+*.pdb
+*.ilk
+*.exp
+*.lib
+!OpenCL/lib/
+!OpenCL/lib/OpenCL.lib
+!Openssl/lib/
+!Openssl/lib/libcrypto.lib
+!Openssl/lib/libssl.lib
+
+# Runtime outputs (may contain private keys / device-specific caches)
+dist/
+dist/*.exe
+dist/*.dll
+dist/result/
+dist/cache/
